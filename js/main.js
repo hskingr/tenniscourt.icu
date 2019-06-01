@@ -12,10 +12,6 @@ console.log("width: " + screenWidthX + " height: " + screenHeightY)
 window.onbeforeunload = function() {
   window.scroll(0, 0)
 }
-// document.getElementById('mainTextBox').style.width = (screenWidthX / 2) + 'px'
-// document.getElementById('mainTextBox').style.height = (screenHeightY / 1.2) + 'px'
-// document.getElementById('mainTextBox').style.left = screenWidthX/4 + 'px'
-// document.getElementById('mainTextBox').style.top = 10 + 'px'
 
 //get image width and height
 let imageWidth = document.getElementById("tennis-court-image").clientWidth
@@ -35,7 +31,6 @@ let myVar = setInterval(scrollAuto, 1000);
 function scrollAuto() {
 
   addX += xMove
-  console.log(addX)
   if (addX > imageWidth) {
     addY += yMove
     addX = 0
@@ -50,10 +45,21 @@ function scrollAuto() {
     behavior: 'smooth'
   });
 
-
-  // document.getElementById('mainTextBox').style.left = window.scrollX + (screenWidthX / 4) + 'px'
-  // document.getElementById('mainTextBox').style.top = window.scrollY + (screenHeightY / 4) + 'px'
 }
+
+// TITLE SCROLL
+msg = "A Diagram of a Tennis Court at a Scale of 1:1 ";
+position = 0;
+
+function scrolltitle() {
+  document.title = msg.substring(position, msg.length) + msg.substring(0, position);
+  position++;
+  if (position > msg.length) position = 0
+  window.setTimeout("scrolltitle()", 170);
+}
+scrolltitle();
+
+
 window.addEventListener('scroll', function() {});
 // body.ontouchend = (e) => {
 //   e.preventDefault();
