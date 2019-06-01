@@ -9,7 +9,23 @@
      content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 />
 	<link href="site.webmanifest" rel="manifest">
-	<link href="icon.png" rel="apple-touch-icon"><!-- Place favicon.ico in the root directory -->
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
 	<link href="css/normalize.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<meta content="#fafafa" name="theme-color">
@@ -24,18 +40,19 @@
 			<h1 id="responsive_headline">A Diagram of a Tennis Court at a Scale of 1:1</h1>
 		</div>
 		<div class="content divStyling divRow">
-			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+			<p> A tennis court is measured at 78&rsquo; by 42&rsquo; 7 3/16&rdquo; or 23.7744m by 12.8588m. This includes the extra width needed for the poles of the net. A page size according to the US Letter is 8.5&rdquo; by 11&rdquo; or 215.9mm by 279.4mm or 816px by 1056px. Most software struggles to handle images that are as large as 23 metres, so a vector of the diagram of the tennis court has been scaled down to 1/5 of its original size. This allows easy manipulation of the image in Adobe Illustrator. Each image is split into sections that are sized at 39.18mm by 51.88mm. They are then enlarged to 195.9mm x 259.4mm and placed onto a page. There is an equal margin of 10mm around the image to center the image and account for any discrepancies in the printing and binding of the book. There are a total of 6222 images needed in order to complete the tennis court. Lulu states that the maximum restriction of pages a book can have is 740. That means in order to complete the tennis court, 9 books need to be printed and bound. </p>
+
+	<p>The website navigates the image at its 1:1 scale. This is done through a timer and scrolling function. The incremental scrolls are created in a way to mimic the linear navigation of the book from left to right or back to front. As the scrolling function reaches the horizontal limit of the image, its resets itself back to the left hand side of the image at a position of 0. While this happens, the scroll moves down vertically to cover the next portion of the image. The horizontal scroll then continues until it reaches the end of the image. When the scroll function reaches the horizontal and vertical limit of the image, the image is then scrolled back to the furthest top left section.<br />
+	</p>
 		</div>
 		<div class="options divRow">
 			<div class="smallDivStyling">
-				<p>made by me!</p>
+				<a href="http://hskr.xyz" ><p>made by me!</p> </a>
 			</div>
 			<div class="smallDivStyling">
 				<p>buy me</p>
 			</div>
-			<div class="smallDivStyling">
-				<p>love me!</p>
-			</div>
+
 		</div>
 	</div><img id="tennis-court-image" src="img/tenniscourt.svg">
 	<script src="js/vendor/modernizr-3.7.1.min.js">
@@ -50,7 +67,7 @@
 	<script src="jquery/jquery.fittext.js">
 	</script>
 	<script>
-	   jQuery("#responsive_headline").fitText(1.1, { minFontSize: '1px', maxFontSize: '500px' });
+	   jQuery("#responsive_headline").fitText(1.1, { minFontSize: '1px', maxFontSize: '30px' });
 	</script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="js/chance.min.js">
