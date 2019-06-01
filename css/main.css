@@ -116,7 +116,8 @@ p.bodyText {
 	padding: 24px;
 }
 #fitBox {
-	display: block;
+	display: flex;
+	flex-direction: column;
 	position: fixed;
 	height: 100vh;
 	width: 99vw;
@@ -130,7 +131,7 @@ p.bodyText {
 	background-color: white;
 	-webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 50px -2px rgba(0, 0, 0, 0);
 	box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 50px -2px rgba(0, 0, 0, 0);
-	padding: 1em;
+		padding: 1em;
 }
 .smallDivStyling {
 	border-radius: 1em;
@@ -142,11 +143,14 @@ p.bodyText {
 	padding-bottom: 0.1em;
 }
 .divRow {
-	width: 76%;
 	margin-left: 7%;
 	margin-right: 7%;
 }
 div.bodyInfo {
+	flex-basis: auto;
+	flex-grow: 3;
+	overflow-y: hidden;
+	height: auto;
 	z-index: 1000;
 	position: relative;
 	display: inline-block;
@@ -154,14 +158,23 @@ div.bodyInfo {
 	margin-top: 5%;
 }
 div.bodyInfo h1 {
-	margin: 0;
+	font-size: 1.5em;
+	padding: : 0em;
+	text-align: center;
+	margin-top: auto;
+
 }
 div.content {
+
+	box-shadow:
+         inset 0px 11px 8px -10px #CCC,
+         inset 0px -11px 8px -10px #CCC;
+	flex-shrink: 2;
 	z-index: 1000;
 	position: relative;
 	display: inline-block;
 	margin-top: 5%;
-	height: 50%;
+	overflow-x: hidden;
 }
 div.content p {
 	font-size: 1em;
@@ -247,17 +260,23 @@ a:active {
 		position: relative;
 		display: inline-block;
 		margin-top: 5%;
-		height: 50%;
 	}
 	.divRow {
 		display: block;
 		max-width: 800px;
-		margin: auto;
+
 	}
 	div.bodyInfo {
+		display: inline-flex;
+		flex-grow: 0;
+		flex-shrink: 1;
 		display: block;
+		padding-top: 2em;
 	}
 	div.content {
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: auto;
 		display: block;
 	}
 	div.options {

@@ -26,7 +26,7 @@ let addX = 0
 let addY = 0
 
 
-let myVar = setInterval(scrollAuto, 1000);
+let myVar = setInterval(scrollAuto, 300);
 
 function scrollAuto() {
 
