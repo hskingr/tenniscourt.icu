@@ -8,25 +8,25 @@ let y = chance.integer({
 })
 let screenWidthX = document.getElementById("fitBox").clientWidth
 let screenHeightY = document.getElementById("fitBox").clientHeight
+
+
 console.log("width: " + screenWidthX + " height: " + screenHeightY)
-window.onbeforeunload = function() {
-  window.scroll(0, 0)
-}
+
 
 //get image width and height
 let imageWidth = document.getElementById("tennis-court-image").clientWidth
 let imageHeight = document.getElementById("tennis-court-image").clientHeight
 //get width of image divided by 122
-let xMove = Math.round(document.getElementById("tennis-court-image").clientWidth / 122)
+let xMove = Math.round(document.getElementById("tennis-court-image").width / 122)
 //get height of image divided by 51
-let yMove = Math.round(document.getElementById("tennis-court-image").clientHeight / 51)
+let yMove = Math.round(document.getElementById("tennis-court-image").height / 51)
 console.log(xMove + " : " + yMove)
 console.log("image size: " + imageWidth + " x " + imageHeight)
 let addX = 0
 let addY = 0
 
 
-let myVar = setInterval(scrollAuto, 1000);
+let myVar = setInterval(checkImageLoaded, 300);
 
 function scrollAuto() {
 
@@ -38,7 +38,6 @@ function scrollAuto() {
     addY = 0
     addX = 0
   }
-
   window.scroll({
     top: addY,
     left: addX,
@@ -64,3 +63,15 @@ window.addEventListener('scroll', function() {});
 // body.ontouchend = (e) => {
 //   e.preventDefault();
 // };
+
+window.onbeforeunload = function() {
+  window.scroll(0, 0)
+}
+
+function checkImageLoaded() {
+  if (document.getElementById("tennis-court-image").complete == true) {
+    scrollAuto()
+  } else {
+    console.log('false')
+  }
+}
