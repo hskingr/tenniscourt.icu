@@ -26,7 +26,7 @@ let addX = 0
 let addY = 0
 
 
-let myVar = setInterval(checkImageLoaded, 300);
+let myVar = setInterval(checkImageLoaded, 10);
 
 function scrollAuto() {
 
@@ -41,7 +41,7 @@ function scrollAuto() {
   window.scroll({
     top: addY,
     left: addX,
-    behavior: 'smooth'
+    behavior: 'auto'
   });
 
 }
