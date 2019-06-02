@@ -139,21 +139,6 @@ p.bodyText {
   padding: 1em;
 }
 
-.smallDivStyling {
-  width: auto;
-  border-radius: 1em;
-  mix-blend-mode: screen;
-  overflow: auto;
-  background-color: white;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
-  margin: 5px;
-}
-
-.lastLink {
-  align-self: flex-end;
-}
-
 .smallDivStyling p {
   margin: 5px;
 }
@@ -184,15 +169,14 @@ div.bodyInfo h1 {
 }
 
 div.content {
-  /* box-shadow:
-         inset 0px 11px 8px -10px #CCC,
-         inset 0px -11px 8px -10px #CCC; */
   flex-shrink: 2;
   z-index: 1000;
   position: relative;
   display: inline-block;
   margin-top: 5%;
   overflow-x: hidden;
+	width: auto;
+	margin: auto;
 }
 
 div.content p {
@@ -202,16 +186,33 @@ div.content p {
 }
 
 div.options {
+	width: 100%;
+	height: 5em;
   align-items: flex-start;
-  justify-content: center;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   position: relative;
   margin-top: 5%;
-  margin-left: 7%;
-  margin-right: 7%;
-  margin-bottom: 5%;
+  margin-left: 0%;
+  margin-right: 0%;
+
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch; /* [4] */
+-ms-overflow-style: -ms-autohiding-scrollbar; /* [5] */
+}
+
+.smallDivStyling {
+	flex: 0 0 auto;
+  width: auto;
+  border-radius: 1em;
+  mix-blend-mode: screen;
+  overflow: auto;
+  background-color: white;
+
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  margin: 5px;
 }
 
 div.options div p {
@@ -242,6 +243,7 @@ a:active {
 /* width */
 ::-webkit-scrollbar {
   width: 0.5em;
+	height: 0.2em;
 }
 
 /* Track */
@@ -276,12 +278,6 @@ a:active {
     line-height: 1.375em;
   }
 
-  div.content {
-    z-index: 1000;
-    position: relative;
-    display: inline-block;
-    margin-top: 5%;
-  }
 
   .divRow {
     display: block;
@@ -303,11 +299,17 @@ a:active {
     flex-shrink: 1;
     flex-basis: auto;
     display: block;
+		z-index: 1000;
+		position: relative;
+		display: inline-block;
+		margin-top: 5%;
   }
 
   div.options {
     margin-left: auto;
     margin-right: auto;
+		  flex-wrap: wrap;
+			  margin-bottom: 5%;
   }
 }
 
