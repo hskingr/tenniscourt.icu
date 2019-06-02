@@ -104,6 +104,10 @@ img {
 	width: 259.68325;
 	height: 475.488cm;
 	z-index: 1002;
+	background: #00CECE;
+    background: -moz-radial-gradient(center, #00CECE 0%, #0527FF 100%);
+    background: -webkit-radial-gradient(center, #00CECE 0%, #0527FF 100%);
+    background: radial-gradient(ellipse at center, #00CECE 0%, #0527FF 100%);
 
 }
 h1 {
