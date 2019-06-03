@@ -11,30 +11,30 @@ let screenHeightY = document.getElementById("fitBox").clientHeight
 
 
 console.log("width: " + screenWidthX + " height: " + screenHeightY)
-
+document.getElementById('tennis-court-image').width = '20cm'
 
 //get image width and height
-let imageWidth = document.getElementById("tennis-court-image").clientWidth
-let imageHeight = document.getElementById("tennis-court-image").clientHeight
+let imageWidth = document.getElementById("tennis-court-image").width
+let imageHeight = document.getElementById("tennis-court-image").height
 //get width of image divided by 122
-let xMove = Math.round(document.getElementById("tennis-court-image").width / 122)
+let xMove = Math.round(document.getElementById("tennis-court-image").width / screenWidthX)
 //get height of image divided by 51
-let yMove = Math.round(document.getElementById("tennis-court-image").height / 51)
+let yMove = Math.round(document.getElementById("tennis-court-image").height / screenHeightY)
 console.log(xMove + " : " + yMove)
 console.log("image size: " + imageWidth + " x " + imageHeight)
 let addX = 0
 let addY = 0
 
 
-let myVar = setInterval(checkImageLoaded, 10);
+let myVar = setInterval(checkImageLoaded, 20);
 
 function scrollAuto() {
 
-  addX += xMove
+  addX += screenWidthX
   if (addX > imageWidth) {
-    addY += yMove
+    addY += screenHeightY
     addX = 0
-  } else if (addY == (yMove * 51)) {
+  } else if (addY > imageHeight) {
     addY = 0
     addX = 0
   }

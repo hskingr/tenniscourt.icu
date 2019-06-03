@@ -97,8 +97,8 @@ body {
 }
 
 img {
-  width: 259.68325cm;
-  height: 475.488cm;
+  width: 1298.41625cm;
+  height: 2377.44cm;
 	z-index: 3;
 }
 
@@ -106,8 +106,8 @@ img {
 	display: block;
 	position: relative;
 	z-index: 2;
-	width: 259.68325cm;
-  height: 475.488cm;
+	width: 1298.41625cm;
+  height: 2377.44cm;
 	background: -moz-radial-gradient(center, #00CECE 0%, #0527FF 100%);
 	background: -webkit-radial-gradient(center, #00CECE 0%, #0527FF 100%);
 	background: radial-gradient(ellipse at center, #00CECE 0%, #0527FF 100%);
@@ -314,6 +314,7 @@ a:active {
     margin-right: auto;
 		  flex-wrap: wrap;
 			  margin-bottom: 5%;
+				height: auto;
   }
 }
 
