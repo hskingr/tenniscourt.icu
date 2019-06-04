@@ -12,6 +12,7 @@ html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+	overflow: hidden;
 }
 
 /*
@@ -97,17 +98,18 @@ body {
 }
 
 img {
-  width: 1298.41625cm;
-  height: 2377.44cm;
+  /* width: 1298.41625cm;
+  height: 2377.44cm; */
 	z-index: 3;
+	overflow: auto;
 }
 
 .image-container {
 	display: block;
 	position: relative;
 	z-index: 2;
-	width: 1298.41625cm;
-  height: 2377.44cm;
+	width:  2377.44cm;
+  height: 1298.41625cm;
 	background: -moz-radial-gradient(center, #00CECE 0%, #0527FF 100%);
 	background: -webkit-radial-gradient(center, #00CECE 0%, #0527FF 100%);
 	background: radial-gradient(ellipse at center, #00CECE 0%, #0527FF 100%);
@@ -119,11 +121,26 @@ h1 {
 
 p {
   font-family: 'Cotham Sans';
-  font-size: 14px;
+  font-size: 1em;
 }
 
 p.bodyText {
   padding: 24px;
+}
+
+p.movement-counter {
+	display: block;
+	position: fixed;
+	font-size: 3em;
+
+	overflow-y: none;
+	overflow-x: none;
+	color: black;
+	margin: auto;
+	width: 98%;
+left: 2%;
+top: 0;
+
 }
 
 #fitBox {
@@ -163,7 +180,7 @@ div.bodyInfo {
   position: relative;
   display: inline-block;
   padding: 18px;
-  margin-top: 5%;
+  /* margin-top: 5%; */
 }
 
 div.bodyInfo h1 {
@@ -191,8 +208,9 @@ div.content p {
 }
 
 div.options {
+	flex-shrink: 0;
+	flex-grow:
 	width: 100%;
-	height: 5em;
   align-items: flex-start;
   display: flex;
   flex-direction: row;
@@ -201,6 +219,7 @@ div.options {
   margin-top: 5%;
   margin-left: 0%;
   margin-right: 0%;
+	padding-bottom: 5%;
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch; /* [4] */
 -ms-overflow-style: -ms-autohiding-scrollbar; /* [5] */
@@ -244,25 +263,28 @@ a:active {
   color: blue;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 0.5em;
-	height: 0.2em;
+.visible-scrollbar, .invisible-scrollbar, .mostly-customized-scrollbar {
+  display: block;
+  width: 10em;
+  overflow: auto;
+  height: 2em;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
+/* Demonstrate a "mostly customized" scrollbar
+ * (won't be visible otherwise if width/height is specified) */
+.mostly-customized-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa; /* or add it to the track */
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+/* Add a thumb */
+.mostly-customized-scrollbar::-webkit-scrollbar-thumb {
+    background: #000;
 }
 
 /* Extra small devices (phones, 600px and down) */

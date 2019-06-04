@@ -6,12 +6,18 @@ let y = chance.integer({
   min: 0,
   max: 80000
 })
+
+//get widht and height of visible screen
+//this changes due to different screen sizes
 let screenWidthX = document.getElementById("fitBox").clientWidth
 let screenHeightY = document.getElementById("fitBox").clientHeight
-
-
 console.log("width: " + screenWidthX + " height: " + screenHeightY)
-document.getElementById('tennis-court-image').width = '20cm'
+
+//setting size of svg here
+document.getElementById('tennis-court-image').setAttribute("height", "49074");
+document.getElementById('tennis-court-image').setAttribute("width", "89856");
+
+
 
 //get image width and height
 let imageWidth = document.getElementById("tennis-court-image").width
@@ -25,18 +31,27 @@ console.log("image size: " + imageWidth + " x " + imageHeight)
 let addX = 0
 let addY = 0
 
-
-let myVar = setInterval(checkImageLoaded, 20);
+let intervalTime = 100
+let myVar = setInterval(checkImageLoaded, intervalTime);
+let timeToComplete = (intervalTime * (122 * 51)) / 100
+let timeMinutes = timeToComplete / 60
+console.log(timeMinutes)
 
 function scrollAuto() {
+  timeToComplete -= 0.1
+  timeMinutes = Math.floor(timeToComplete / 60)
 
+  document.getElementById('counter').innerHTML = '⇨ time to complete: ' + timeMinutes + ' minutes and ' + Math.floor(timeToComplete % 60) + '<br> seconds'
   addX += screenWidthX
   if (addX > imageWidth) {
     addY += screenHeightY
+    document.getElementById('counter').innerHTML = '↩ <br> next row ↩ <br> next row ↩ <br> next row ↩ <br> next row'
     addX = 0
   } else if (addY > imageHeight) {
+
     addY = 0
     addX = 0
+
   }
   window.scroll({
     top: addY,
