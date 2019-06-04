@@ -35,17 +35,18 @@ let intervalTime = 100
 let myVar = setInterval(checkImageLoaded, intervalTime);
 let timeToComplete = (intervalTime * (122 * 51)) / 100
 let timeMinutes = timeToComplete / 60
+let passesCount = ''
 console.log(timeMinutes)
 
 function scrollAuto() {
   timeToComplete -= 0.1
   timeMinutes = Math.floor(timeToComplete / 60)
 
-  document.getElementById('counter').innerHTML = '⇨ time to complete: ' + timeMinutes + ' minutes and ' + Math.floor(timeToComplete % 60) + '<br> seconds'
+  document.getElementById('counter').innerHTML = '⇨ time to complete: ' + timeMinutes + ' minutes and ' + Math.floor(timeToComplete % 60) + '<br> seconds ' + passesCount
   addX += screenWidthX
   if (addX > imageWidth) {
     addY += screenHeightY
-    document.getElementById('counter').innerHTML = '↩ <br> next row ↩ <br> next row ↩ <br> next row ↩ <br> next row'
+    passesCount += '↩  '
     addX = 0
   } else if (addY > imageHeight) {
 
