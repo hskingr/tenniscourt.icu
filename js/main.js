@@ -22,9 +22,9 @@ document.getElementById('tennis-court-image').setAttribute("width", "89856");
 //get image width and height
 let imageWidth = document.getElementById("tennis-court-image").width
 let imageHeight = document.getElementById("tennis-court-image").height
-//get width of image divided by 122
+//get width of image divided by screen width
 let xMove = Math.round(document.getElementById("tennis-court-image").width / screenWidthX)
-//get height of image divided by 51
+//get height of image divided by screen height
 let yMove = Math.round(document.getElementById("tennis-court-image").height / screenHeightY)
 console.log(xMove + " : " + yMove)
 console.log("image size: " + imageWidth + " x " + imageHeight)
@@ -32,17 +32,25 @@ let addX = 0
 let addY = 0
 
 let intervalTime = 100
+let howManyIntervalsInASecond = 1000 / intervalTime
+let timer = setInterval(changeTimer, 1000)
 let myVar = setInterval(checkImageLoaded, intervalTime);
-let timeToComplete = (intervalTime * (122 * 51)) / 100
+let timeToComplete = ((xMove * yMove)) / howManyIntervalsInASecond
 let timeMinutes = timeToComplete / 60
 let passesCount = ''
-console.log(timeMinutes)
+console.log(timeToComplete)
+
+function changeTimer() {
+  if (timeToComplete == 0) {
+    timeToComplete = ((xMove * yMove)) / howManyIntervalsInASecond
+  }
+  timeToComplete -= 1
+  timeMinutes = Math.floor(timeToComplete / 60)
+  document.getElementById('counter').innerHTML = '⇨ time to complete movement: ' + timeMinutes + ' minutes and ' + Math.floor(timeToComplete % 60) + '<br> seconds ' + passesCount
+}
 
 function scrollAuto() {
-  timeToComplete -= 0.1
-  timeMinutes = Math.floor(timeToComplete / 60)
 
-  document.getElementById('counter').innerHTML = '⇨ time to complete: ' + timeMinutes + ' minutes and ' + Math.floor(timeToComplete % 60) + '<br> seconds ' + passesCount
   addX += screenWidthX
   if (addX > imageWidth) {
     addY += screenHeightY
