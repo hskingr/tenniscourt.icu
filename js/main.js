@@ -62,7 +62,7 @@ function scrollAuto() {
   addX += screenWidthX
   if (addX > imageWidth) {
     addY += screenHeightY
-    passesCount += '⮐  '
+    passesCount += '&#8629;  '
     addX = 0
   } else if (addY > imageHeight) {
     addY = 0
