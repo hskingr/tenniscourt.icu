@@ -16,8 +16,8 @@ let desiredImageHeight = 49074
 console.log("screen width: " + screenWidthX + " screen height: " + screenHeightY)
 
 //setting size of svg here
-document.getElementById('tennis-court-image').setAttribute("width", desiredImageWidth / 10);
-document.getElementById('tennis-court-image').setAttribute("height", desiredImageHeight / 10);
+document.getElementById('tennis-court-image').setAttribute("width", desiredImageWidth);
+document.getElementById('tennis-court-image').setAttribute("height", desiredImageHeight);
 
 
 
