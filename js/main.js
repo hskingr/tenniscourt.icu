@@ -11,11 +11,13 @@ let y = chance.integer({
 //this changes due to different screen sizes
 let screenWidthX = document.getElementById("fitBox").clientWidth
 let screenHeightY = document.getElementById("fitBox").clientHeight
-console.log("width: " + screenWidthX + " height: " + screenHeightY)
+let desiredImageWidth = 49074
+let desiredImageHeight = 49074
+console.log("screen width: " + screenWidthX + "screen height: " + screenHeightY)
 
 //setting size of svg here
-document.getElementById('tennis-court-image').setAttribute("height", "49074");
-document.getElementById('tennis-court-image').setAttribute("width", "89856");
+document.getElementById('tennis-court-image').setAttribute("height", desiredImageWidth / 5);
+document.getElementById('tennis-court-image').setAttribute("width", desiredImageHeight / 5);
 
 
 
@@ -23,26 +25,32 @@ document.getElementById('tennis-court-image').setAttribute("width", "89856");
 let imageWidth = document.getElementById("tennis-court-image").width
 let imageHeight = document.getElementById("tennis-court-image").height
 //get width of image divided by screen width
-let xMove = Math.round(document.getElementById("tennis-court-image").width / screenWidthX)
+let xMove = Math.round(imageWidth / screenWidthX)
 //get height of image divided by screen height
-let yMove = Math.round(document.getElementById("tennis-court-image").height / screenHeightY)
-console.log(xMove + " : " + yMove)
+let yMove = Math.round(imageHeight / screenHeightY)
+console.log("x and y sections to move across: " + xMove + " : " + yMove)
 console.log("image size: " + imageWidth + " x " + imageHeight)
 let addX = 0
 let addY = 0
 
-let intervalTime = 100
+let intervalTime = 200
 let howManyIntervalsInASecond = 1000 / intervalTime
 let timer = setInterval(changeTimer, 1000)
 let myVar = setInterval(checkImageLoaded, intervalTime);
 let timeToComplete = ((xMove * yMove)) / howManyIntervalsInASecond
 let timeMinutes = timeToComplete / 60
 let passesCount = ''
-console.log(timeToComplete)
+console.log("time to complete in seconds: " + timeToComplete)
 
 function changeTimer() {
   if (timeToComplete == 0) {
+    //timer and scroll functions not completely in sync
+    console.log('zero')
+    document.getElementById('counter').innerHTML = "restart"
+    passesCount = ''
     timeToComplete = ((xMove * yMove)) / howManyIntervalsInASecond
+    addX = 0
+    addY = 0
   }
   timeToComplete -= 1
   timeMinutes = Math.floor(timeToComplete / 60)
@@ -57,7 +65,6 @@ function scrollAuto() {
     passesCount += '↩  '
     addX = 0
   } else if (addY > imageHeight) {
-
     addY = 0
     addX = 0
 
