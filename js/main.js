@@ -11,13 +11,13 @@ let y = chance.integer({
 //this changes due to different screen sizes
 let screenWidthX = document.getElementById("fitBox").clientWidth
 let screenHeightY = document.getElementById("fitBox").clientHeight
-let desiredImageWidth = 49074
+let desiredImageWidth = 89856
 let desiredImageHeight = 49074
-console.log("screen width: " + screenWidthX + "screen height: " + screenHeightY)
+console.log("screen width: " + screenWidthX + " screen height: " + screenHeightY)
 
 //setting size of svg here
-document.getElementById('tennis-court-image').setAttribute("height", desiredImageWidth / 5);
-document.getElementById('tennis-court-image').setAttribute("width", desiredImageHeight / 5);
+document.getElementById('tennis-court-image').setAttribute("width", desiredImageWidth / 10);
+document.getElementById('tennis-court-image').setAttribute("height", desiredImageHeight / 10);
 
 
 
@@ -33,11 +33,11 @@ console.log("image size: " + imageWidth + " x " + imageHeight)
 let addX = 0
 let addY = 0
 
-let intervalTime = 200
+let intervalTime = 100
 let howManyIntervalsInASecond = 1000 / intervalTime
 let timer = setInterval(changeTimer, 1000)
 let myVar = setInterval(checkImageLoaded, intervalTime);
-let timeToComplete = ((xMove * yMove)) / howManyIntervalsInASecond
+let timeToComplete = Math.round(((xMove * yMove)) / howManyIntervalsInASecond)
 let timeMinutes = timeToComplete / 60
 let passesCount = ''
 console.log("time to complete in seconds: " + timeToComplete)
@@ -62,14 +62,14 @@ function scrollAuto() {
   addX += screenWidthX
   if (addX > imageWidth) {
     addY += screenHeightY
-    passesCount += '↩  '
+    passesCount += '⮐  '
     addX = 0
   } else if (addY > imageHeight) {
     addY = 0
     addX = 0
 
   }
-  window.scroll({
+  document.getElementById('scroll-me').scroll({
     top: addY,
     left: addX,
     behavior: 'auto'
@@ -90,12 +90,32 @@ function scrolltitle() {
 scrolltitle();
 
 
-window.addEventListener('scroll', function() {});
-// body.ontouchend = (e) => {
-//   e.preventDefault();
-// };
+// window.addEventListener('scroll', function() {});
+// // body.ontouchend = (e) => {
+// //   e.preventDefault();
+// // };
+//
+// function disableScroll() {
+//   $(element).on('touchmove', function(event) {
+//     event.preventDefault();
+//   });
+// },
+//
+// function enableScroll() {
+//   $(element).off('touchmove');
+// }
+
+$(document).ready(function() {
+
+  $('html, body').scroll(function(e) {
+    e.preventDefault();
+  });
+
+});
+
 
 window.onbeforeunload = function() {
+  document.getElementById('scroll-me').scroll(0, 0)
   window.scroll(0, 0)
 }
 

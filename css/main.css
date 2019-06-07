@@ -90,29 +90,39 @@ textarea {
   src: url('../fonts/CothamSans.eot?#iefix') format('embedded-opentype'), url('../fonts/CothamSans.woff2') format('woff2'), url('../fonts/CothamSans.woff') format('woff'), url('../fonts/CothamSans.ttf') format('truetype'), url('../fonts/CothamSans.svg#Cotham Sans') format('svg');
 }
 
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
 body {
   width: 100%;
   height: 100%;
   font-family: 'Cotham Sans';
+  position: fixed;
+/* overflow: hidden; */
 
 }
 
 img {
-  /* width: 1298.41625cm;
-  height: 2377.44cm; */
-	z-index: 3;
+
+  position: relative;
 	overflow: auto;
 }
 
 .image-container {
-	display: block;
-	position: relative;
-	z-index: 2;
-	width:  2377.44cm;
-  height: 1298.41625cm;
-	background: -moz-radial-gradient(center, #00CECE 0%, #0527FF 100%);
-	background: -webkit-radial-gradient(center, #00CECE 0%, #0527FF 100%);
-	background: radial-gradient(ellipse at center, #00CECE 0%, #0527FF 100%);
+  position:absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1000;
+
+}
+
+#scroll-me {
+  width: 100vw;
+  height: 100vh;
+  overflow:scroll;
+  position: relative;
+  background-image: linear-gradient(to bottom, #00cece, #00b7eb, #009aff, #0073ff, #0527ff);
 }
 
 h1 {
@@ -150,15 +160,14 @@ top: 0;
   position: fixed;
   height: 100%;
   width: 99vw;
-  overflow: hidden;
-  overflow-x: hidden;
+
 }
 
 .divStyling {
   border-radius: 1em;
-  overflow: auto;
   color: white;
   padding: 1em;
+  overflow: hidden;
 }
 
 .smallDivStyling p {
@@ -199,12 +208,15 @@ div.content {
   overflow-x: hidden;
 	width: auto;
 	margin: auto;
+  overflow-y: auto;
+
 }
 
 div.content p {
   margin-top: 0;
   font-size: 1em;
   line-height: 1.3em;
+
 }
 
 div.options {
